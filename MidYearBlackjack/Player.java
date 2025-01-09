@@ -26,6 +26,7 @@ public class Player extends Actor
     {
         giveInitialCards();
         askPlayerInput();
+        
     }
     public void askPlayerInput() {
         getWorld().showText("What would you like to do?", 700, 400);
@@ -42,7 +43,6 @@ public class Player extends Actor
         if (Greenfoot.isKeyDown("1")) {
             Card nextPlayerCard = new Card();
             getWorld().addObject(playerCard1, 243, 261);
-            cardPoints+=;
         }
     }
 }
