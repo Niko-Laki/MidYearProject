@@ -8,15 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Player extends Actor
 {
-    public int cardPoints;
     public Card playerCard1;
     public Card playerCard2;
     public Player() {
-            //getWorld().addObject(playerCard1, 233, 261);
+        //getWorld().addObject(playerCard1, 233, 261);
         //getWorld().addObject(playerCard2, 281, 312);
         playerCard1 = new Card();
         playerCard2 = new Card();
-        cardPoints = 0;
     }
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
@@ -26,6 +24,7 @@ public class Player extends Actor
     {
         giveInitialCards();
         askPlayerInput();
+        getWorld().showText("Deck value: " + getCardPoints(), 25, 450);
         
     }
     public void askPlayerInput() {
@@ -44,5 +43,8 @@ public class Player extends Actor
             Card nextPlayerCard = new Card();
             getWorld().addObject(playerCard1, 243, 261);
         }
+    }
+    public int getCardPoints() {
+        return playerCard1.cardPoints + playerCard2.cardPoints;
     }
 }

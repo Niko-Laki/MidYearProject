@@ -26,7 +26,7 @@ public class MyWorld extends World
     private void prepare()
     {
         Player player1 = new Player();
-        addObject(player1,100 ,200 );
+        addObject(player1, 100, 200);
         //addObject(new Card(), getWidth()/2, getHeight()/2);
     }
 }
