@@ -10,6 +10,7 @@ public class Dealer extends Actor
 {   public int dealerCardPoints;
     public Card dealerCard1;
     public Card dealerCard2;
+    private boolean dontTakeMoreThanOneCard = false;
     public List<Card> dealerCards;
     public Dealer() {
         dealerCardPoints = 0;
@@ -22,7 +23,7 @@ public class Dealer extends Actor
     public void act()
     {
         giveInitialCards();
-        dealerCards = getNeighbours(100, false, Card.class);
+        dealerCards = getNeighbours(200, true, Card.class);
         takeNewCard();
         updateCardPoints();
     }
@@ -33,12 +34,15 @@ public class Dealer extends Actor
         }
     }
     public void takeNewCard() {
-        if (((MyWorld)(getWorld())).getTurns() % 2 !=0) {
-            if (dealerCardPoints<17) {Card nextDealerCard = new Card();
+        if (((MyWorld)(getWorld())).getTurns() % 2 !=0 && !dontTakeMoreThanOneCard) {
+            if (dealerCardPoints<17) {
+            Card nextDealerCard = new Card();
             getWorld().addObject(nextDealerCard, getWorld().getWidth()/2, 180);
-        } else if (dealerCardPoints<=17 && ((MyWorld)(getWorld())).getTurns() %2 ==0){
+            dontTakeMoreThanOneCard = true;
             ((MyWorld)(getWorld())).addTurn();
-            }
+        } else if (dealerCardPoints>17){
+            ((MyWorld)(getWorld())).addTurn();
+            } 
         }
     }
      public void updateCardPoints() {
