@@ -12,7 +12,7 @@ public class Card extends Actor
     public Card() {
         cardChosen = Greenfoot.getRandomNumber(11)+1;
         setCard();
-        getImage().scale(getImage().getWidth()/4,getImage().getHeight()/4);
+        getImage().scale(getImage().getWidth()/6,getImage().getHeight()/6);
     }
     /**
      * Act - do whatever the Card wants to do. This method is called whenever
@@ -48,31 +48,6 @@ public class Card extends Actor
         }
     }
     public int getCardValue() {
-        if (getImage().equals("Number1.png")) {
-            return 1;
-        } else if (getImage().equals("Number2.png")) { 
-            return 2;
-        } else if (getImage().equals("Number3.png")) {
-            return 3;
-        } else if (getImage().equals("Number4.png")) {
-            return 4;
-        } else if (getImage().equals("Number5.png")) {
-            return 5;
-        } else if (getImage().equals("Number6.png")) {
-            return 6;
-        } else if (getImage().equals("Number7.png")) {
-            return 7;
-        } else if (getImage().equals("Number8.png")) {
-            return 8;
-        } else if (getImage().equals("Number9.png")) {
-            return 9;
-        } else if (getImage().equals("Number10.png")) {
-            return 10;
-        } else {
-            return 11;
+        return cardChosen;
         }
     }
-    public int getCardPoints() {
-        cardPoints = 
-    }
-}
