@@ -45,11 +45,13 @@ public class Player extends Actor
     }
     public void takeNewCards() {
         if (Greenfoot.isKeyDown("1")&& !(letsNotHoldKeys)) {
+            if (playerCardPoints<21) {
             Card nextPlayerCard = new Card();
             getWorld().addObject(nextPlayerCard,230,261);
             letsNotHoldKeys = true;
             ((MyWorld)(getWorld())).addTurn();
-        } else if (!(Greenfoot.isKeyDown("1"))) {
+        }
+            } else if (!(Greenfoot.isKeyDown("1"))) {
             letsNotHoldKeys = false;
         }
     }
@@ -67,5 +69,12 @@ public class Player extends Actor
     }
     public int returnPlayerCardPoints() {
         return playerCardPoints;
+    }
+    public boolean isStanding() {
+        if (Greenfoot.isKeyDown("2")) {
+            return true;
+        } else {
+            
+        }return false;
     }
 }
