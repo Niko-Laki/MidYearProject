@@ -43,25 +43,6 @@ public class MyWorld extends World
     public int getTurns() {
         return turnNumber;
     }
-        /*boolean playerWon = false;
-        boolean playerBlackjack = false;
-        boolean playerLost = false;
-        boolean playerTie = false;
-        if (player.isStanding() && dealerPoints >=17) {
-            if (playerPoints>dealerPoints && playerPoints<21) {
-                return playerWon = true;
-            } else if (playerPoints>dealerPoints && playerPoints == 21) {
-                return playerBlackjack = true;
-            } else if (playerPoints<dealerPoints) {
-                return playerWon;
-            } else {
-                return playerTie = true;
-            }
-        }
-        else {
-            return false;
-        }
-    }*/
     public void setFirstTurn() {
         if (turnNumber != 0) {
             isFirstTurn = false;
@@ -77,14 +58,20 @@ public class MyWorld extends World
     public void playerBlackjack() {
         if (player.returnPlayerCardPoints()==21 
         && dealer.returnDealerCardPoints()!=21) {
+            showText("Player hit Blackjack!", getWidth()/2, getHeight()/2);
             Greenfoot.stop();
-        }
+        } 
     }
     public void playerWon() {
         if (player.isStanding()) {
-            if (player.returnPlayerCardPoints()<21 && (dealer.returnDealerCardPoints()>=17
-            && dealer.returnDealerCardPoints()<player.returnPlayerCardPoints())) {
+            if (player.returnPlayerCardPoints()<21 && (dealer.returnDealerCardPoints()>=17)) {
+                if (player.returnPlayerCardPoints()>dealer.returnDealerCardPoints()) {
+                showText("Player Wins!", getWidth()/2, getHeight()/2);
                 Greenfoot.stop();
+                } else {
+                    showText("Dealer Wins!", getWidth()/2, getHeight()/2);
+                    Greenfoot.stop();
+                }
             }
         }
     }

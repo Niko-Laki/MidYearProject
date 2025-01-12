@@ -17,7 +17,6 @@ comment5.params=
 comment5.target=int\ getTurns()
 comment6.params=
 comment6.target=void\ setFirstTurn()
-comment6.text=boolean\ playerWon\ \=\ false;\r\n\ \ \ \ \ \ \ \ boolean\ playerBlackjack\ \=\ false;\r\n\ \ \ \ \ \ \ \ boolean\ playerLost\ \=\ false;\r\n\ \ \ \ \ \ \ \ boolean\ playerTie\ \=\ false;\r\n\ \ \ \ \ \ \ \ if\ (player.isStanding()\ &&\ dealerPoints\ >\=17)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (playerPoints>dealerPoints\ &&\ playerPoints<21)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ playerWon\ \=\ true;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\ else\ if\ (playerPoints>dealerPoints\ &&\ playerPoints\ \=\=\ 21)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ playerBlackjack\ \=\ true;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\ else\ if\ (playerPoints<dealerPoints)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ playerWon;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ playerTie\ \=\ true;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ else\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ false;\r\n\ \ \ \ \ \ \ \ }\r\n}
 comment7.params=
 comment7.target=boolean\ returnFirstTurn()
 comment8.params=

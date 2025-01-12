@@ -31,6 +31,7 @@ public class Player extends Actor
         playerCards = getNeighbours(200, true, Card.class);
         takeNewCards();
         updateCardPoints();
+        stand();
     }
     public void askPlayerInput() {
         getWorld().showText("What would you like to do?", 700, 400);
@@ -56,8 +57,9 @@ public class Player extends Actor
         }
     }
     public void stand() {
-        if (Greenfoot.isKeyDown("2")) {
+        if (Greenfoot.isKeyDown("2") && (!letsNotHoldKeys)) {
             ((MyWorld)(getWorld())).addTurn();
+            letsNotHoldKeys = false;
         }
     }
     public void updateCardPoints() {
@@ -65,7 +67,7 @@ public class Player extends Actor
         for (Card current: playerCards) {
             playerCardPoints += current.getCardValue();
         }
-        getWorld().showText("Card Points: " + playerCardPoints, 50, 50);
+        getWorld().showText("Card Points: " + playerCardPoints, 120, 50);
     }
     public int returnPlayerCardPoints() {
         return playerCardPoints;
@@ -73,8 +75,7 @@ public class Player extends Actor
     public boolean isStanding() {
         if (Greenfoot.isKeyDown("2")) {
             return true;
-        } else {
-            
-        }return false;
+        }
+        return false;
     }
 }
