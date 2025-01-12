@@ -36,6 +36,9 @@ public class MyWorld extends World
     public void act() {
         player = (Player)getObjects(Player.class).get(0);
         dealer = (Dealer)getObjects(Dealer.class).get(0);
+        playerWon();
+        playerBlackjack();
+        autoLose();
     }
     public void addTurn() {
         turnNumber++;
@@ -57,14 +60,13 @@ public class MyWorld extends World
     }
     public void playerBlackjack() {
         if (player.returnPlayerCardPoints()==21 
-        && dealer.returnDealerCardPoints()!=21) {
-            showText("Player hit Blackjack!", getWidth()/2, getHeight()/2);
+        && dealer.returnDealerStand()) {
+            showText("PLAYER BLACKJACK!", getWidth()/2, getHeight()/2);
             Greenfoot.stop();
         } 
     }
     public void playerWon() {
-        if (player.isStanding()) {
-            if (player.returnPlayerCardPoints()<21 && (dealer.returnDealerCardPoints()>=17)) {
+        if (player.isStanding() && dealer.returnDealerStand()) {
                 if (player.returnPlayerCardPoints()>dealer.returnDealerCardPoints()) {
                 showText("Player Wins!", getWidth()/2, getHeight()/2);
                 Greenfoot.stop();
@@ -72,7 +74,14 @@ public class MyWorld extends World
                     showText("Dealer Wins!", getWidth()/2, getHeight()/2);
                     Greenfoot.stop();
                 }
-            }
+        }
+    }
+    public void autoLose() {
+        if(dealer.returnDealerCardPoints() > 21) {
+          showText("Player Wins! Dealer over 21!", getWidth()/2, getHeight()/2);  
+          Greenfoot.stop();  
+        } else if (player.returnPlayerCardPoints()>21) {
+            showText("Dealer Wins! Player over 21!", getWidth()/2, getHeight()/2);
         }
     }
 }

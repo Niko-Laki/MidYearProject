@@ -60,6 +60,7 @@ public class Player extends Actor
         if (Greenfoot.isKeyDown("2") && (!letsNotHoldKeys)) {
             ((MyWorld)(getWorld())).addTurn();
             letsNotHoldKeys = false;
+            //dealer.setTime(150);
         }
     }
     public void updateCardPoints() {
